@@ -72,27 +72,27 @@
             background-color: var(--teal-footer);
         }
 
-        /* لێرەدا top: 72% کراوە بۆ ئەوەی دوگمەکان زۆر بێنە خوارەوە */
+        /* بەهای top گۆڕدراوە بۆ 56% بۆ ئەوەی بکەوێتە سەروو فوتەرەکە */
         .buttons-container {
             position: absolute;
-            top: 72%; /* شوێنەکەی زۆر هێنراوەتە خوارەوە */
+            top: 56%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 88%;
             display: flex;
             flex-direction: column;
-            gap: 1.8%;
+            gap: 1%;
         }
 
         .pill-btn {
             display: flex;
             align-items: center;
             width: 100%;
-            height: clamp(32px, 5vw, 40px);
+            height: clamp(30px, 4.5vw, 38px);
             background: #FAF8F5;
             border: 1.5px solid #1A1A1A;
             border-radius: 12px;
-            padding: 3px 6px;
+            padding: 2px 5px;
             text-decoration: none;
             color: inherit;
             box-shadow: 0 2px 4px rgba(0,0,0,0.08);
@@ -136,7 +136,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: clamp(11px, 3vw, 15px);
+            font-size: clamp(10px, 2.5vw, 14px);
             flex-shrink: 0;
             overflow: hidden;
             margin-left: auto;
@@ -163,7 +163,7 @@
 
         .pill-content {
             flex: 1;
-            padding: 0 10px;
+            padding: 0 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -171,7 +171,7 @@
         }
 
         .pill-title {
-            font-size: clamp(11px, 2.8vw, 14px);
+            font-size: clamp(10px, 2.5vw, 13px);
             font-weight: bold;
             color: #000;
             font-family: 'Times New Roman', Times, serif;
@@ -179,8 +179,8 @@
         }
 
         .pill-arrow {
-            padding-left: 10px;
-            font-size: clamp(8.5px, 2.2vw, 11px);
+            padding-left: 8px;
+            font-size: clamp(7.5px, 2vw, 10px);
             font-weight: bold;
             color: #1A1A1A;
             display: flex;
@@ -198,43 +198,44 @@
             50% { transform: translateX(-3px); }
         }
 
+        /* فوتەرەکە بچووککراوەتەوە */
         .unified-footer {
             position: relative;
             width: 100%;
             background-color: var(--teal-footer);
-            padding: 50px 20px 20px;
+            padding: 30px 15px 15px; /* پادینگ کەمکراوەتەوە */
             margin-top: -1px;
         }
 
         .unified-footer::before {
             content: '';
             position: absolute;
-            top: -50px;
+            top: -30px; /* چەماوەکە بچووککراوەتەوە */
             left: -10%;
             width: 120%;
-            height: 100px;
+            height: 60px; /* چەماوەکە کورتکراوەتەوە */
             background-color: var(--teal-footer);
             border-radius: 50% 50% 0 0 / 100% 100% 0 0;
         }
 
         .paw-icon {
             position: relative;
-            width: 55px;
-            height: 55px;
+            width: 40px; /* ئایکۆنەکە بچووککراوەتەوە */
+            height: 40px; /* ئایکۆنەکە بچووککراوەتەوە */
             background-color: rgba(255,255,255,0.15);
-            border: 3px solid rgba(255,255,255,0.4);
+            border: 2px solid rgba(255,255,255,0.4);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 12px;
+            margin: 0 auto 10px;
             z-index: 2;
             animation: pawFloat 2s ease-in-out infinite;
         }
 
         .paw-icon i {
             color: white;
-            font-size: 26px;
+            font-size: 20px; /* ئایکۆنەکە بچووککراوەتەوە */
         }
 
         @keyframes pawFloat {
@@ -247,12 +248,12 @@
             text-align: center;
             color: #FFFFFF;
             font-family: 'Noto Naskh Arabic', Arial, sans-serif;
-            font-size: clamp(11px, 3vw, 14px);
+            font-size: clamp(10px, 2.8vw, 13px); /* قەبارەی نووسین کەمکراوەتەوە */
             font-weight: 700;
             direction: rtl;
             text-shadow: 0 1px 3px rgba(0,0,0,0.6);
             white-space: nowrap;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* مەودا کەمکراوەتەوە */
             z-index: 2;
         }
 
@@ -261,17 +262,17 @@
             text-align: center;
             color: #e2f1f1;
             font-family: 'Noto Naskh Arabic', Arial, sans-serif;
-            font-size: 13px;
+            font-size: 11px; /* قەبارەی نووسین کەمکراوەتەوە */
             font-weight: 600;
             direction: rtl;
-            margin-bottom: 8px;
+            margin-bottom: 5px; /* مەودا کەمکراوەتەوە */
             z-index: 2;
         }
 
         .footer-rights {
             position: relative;
             text-align: center;
-            font-size: 11px;
+            font-size: 10px; /* قەبارەی نووسین کەمکراوەتەوە */
             letter-spacing: 0.5px;
             font-weight: 600;
             color: #ffffff;
@@ -281,7 +282,6 @@
     </style>
 </head>
 <body>
-
 <div class="wrapper">
     <div class="card-container">
         
@@ -349,6 +349,5 @@
 
     </div>
 </div>
-
 </body>
 </html>
