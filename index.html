@@ -9,7 +9,7 @@
     <style>
         :root {
             --teal-main: #3D8C8D;
-            --teal-bg: #26635c;
+            --teal-footer: #1d5b5c;
             --text-dark: #1A1A1A;
             --bg-outer: #d1d8d6;
         }
@@ -42,7 +42,6 @@
             background-color: var(--bg-outer);
         }
 
-        /* Container Card */
         .card-container {
             width: 100%;
             max-width: 480px;
@@ -51,7 +50,7 @@
             flex-shrink: 0;
             overflow: hidden;
             border-bottom: 3px solid #1A1A1A;
-            background-color: var(--teal-bg);
+            background-color: var(--teal-footer);
         }
 
         @media (min-width: 500px) {
@@ -62,7 +61,6 @@
             }
         }
 
-        /* Poster Card */
         .poster-card {
             width: 100%;
             aspect-ratio: 1 / 1.52;
@@ -71,36 +69,49 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            background-color: var(--teal-bg);
+            background-color: var(--teal-footer);
         }
 
-        /* Interactive Buttons Container */
+        /* لێرەدا top: 72% کراوە بۆ ئەوەی دوگمەکان زۆر بێنە خوارەوە */
         .buttons-container {
             position: absolute;
-            top: 40.5%;
+            top: 72%; /* شوێنەکەی زۆر هێنراوەتە خوارەوە */
             left: 50%;
-            transform: translateX(-50%);
-            width: 82%;
+            transform: translate(-50%, -50%);
+            width: 88%;
             display: flex;
             flex-direction: column;
             gap: 1.8%;
         }
 
-        /* Floating Button Style */
         .pill-btn {
             display: flex;
             align-items: center;
             width: 100%;
-            height: clamp(26px, 4.3vw, 35px);
+            height: clamp(32px, 5vw, 40px);
             background: #FAF8F5;
             border: 1.5px solid #1A1A1A;
             border-radius: 12px;
-            padding: 2px 4px;
+            padding: 3px 6px;
             text-decoration: none;
             color: inherit;
             box-shadow: 0 2px 4px rgba(0,0,0,0.08);
             transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, background-color 0.2s ease;
             direction: ltr;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .pill-btn:nth-child(1) { animation-delay: 0s; }
+        .pill-btn:nth-child(2) { animation-delay: 0.2s; }
+        .pill-btn:nth-child(3) { animation-delay: 0.4s; }
+        .pill-btn:nth-child(4) { animation-delay: 0.6s; }
+        .pill-btn:nth-child(5) { animation-delay: 0.8s; }
+        .pill-btn:nth-child(6) { animation-delay: 1.0s; }
+        .pill-btn:nth-child(7) { animation-delay: 1.2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
         }
 
         .pill-btn:active {
@@ -125,25 +136,42 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: clamp(9.5px, 2.7vw, 13px);
+            font-size: clamp(11px, 3vw, 15px);
             flex-shrink: 0;
             overflow: hidden;
+            margin-left: auto;
+            order: 3;
         }
 
         .pill-icon-wrapper i {
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: iconPulse 2s ease-in-out infinite;
         }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .pill-btn:nth-child(1) .pill-icon-wrapper i { animation-delay: 0s; }
+        .pill-btn:nth-child(2) .pill-icon-wrapper i { animation-delay: 0.15s; }
+        .pill-btn:nth-child(3) .pill-icon-wrapper i { animation-delay: 0.3s; }
+        .pill-btn:nth-child(4) .pill-icon-wrapper i { animation-delay: 0.45s; }
+        .pill-btn:nth-child(5) .pill-icon-wrapper i { animation-delay: 0.6s; }
+        .pill-btn:nth-child(6) .pill-icon-wrapper i { animation-delay: 0.75s; }
+        .pill-btn:nth-child(7) .pill-icon-wrapper i { animation-delay: 0.9s; }
 
         .pill-content {
             flex: 1;
             padding: 0 10px;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
+            order: 2;
         }
 
         .pill-title {
-            font-size: clamp(9.5px, 2.6vw, 12px);
+            font-size: clamp(11px, 2.8vw, 14px);
             font-weight: bold;
             color: #000;
             font-family: 'Times New Roman', Times, serif;
@@ -151,63 +179,104 @@
         }
 
         .pill-arrow {
-            padding-right: 10px;
-            font-size: clamp(7.5px, 2vw, 9.5px);
+            padding-left: 10px;
+            font-size: clamp(8.5px, 2.2vw, 11px);
             font-weight: bold;
             color: #1A1A1A;
             display: flex;
             align-items: center;
+            order: 1;
         }
 
         .pill-arrow i {
             transition: transform 0.2s ease;
+            animation: arrowBounce 1.5s ease-in-out infinite;
         }
 
-        .bottom-slogan {
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-3px); }
+        }
+
+        .unified-footer {
+            position: relative;
+            width: 100%;
+            background-color: var(--teal-footer);
+            padding: 50px 20px 20px;
+            margin-top: -1px;
+        }
+
+        .unified-footer::before {
+            content: '';
             position: absolute;
-            bottom: 2%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 92%;
+            top: -50px;
+            left: -10%;
+            width: 120%;
+            height: 100px;
+            background-color: var(--teal-footer);
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .paw-icon {
+            position: relative;
+            width: 55px;
+            height: 55px;
+            background-color: rgba(255,255,255,0.15);
+            border: 3px solid rgba(255,255,255,0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            z-index: 2;
+            animation: pawFloat 2s ease-in-out infinite;
+        }
+
+        .paw-icon i {
+            color: white;
+            font-size: 26px;
+        }
+
+        @keyframes pawFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .slogan-main {
+            position: relative;
             text-align: center;
             color: #FFFFFF;
             font-family: 'Noto Naskh Arabic', Arial, sans-serif;
-            font-size: clamp(10px, 2.8vw, 13px);
+            font-size: clamp(11px, 3vw, 14px);
             font-weight: 700;
             direction: rtl;
             text-shadow: 0 1px 3px rgba(0,0,0,0.6);
             white-space: nowrap;
+            margin-bottom: 20px;
+            z-index: 2;
         }
 
-        /* Footer Section with #26635c */
-        .site-footer {
-            width: 100%;
-            background-color: var(--teal-bg);
-            color: #FFFFFF;
+        .slogan-quote {
+            position: relative;
             text-align: center;
-            padding: 14px 15px 16px 15px;
-            font-family: 'Noto Naskh Arabic', Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            align-items: center;
-            justify-content: center;
-            margin-top: -1px;
-        }
-
-        .footer-slogan {
-            font-size: 13.5px;
-            font-weight: 600;
             color: #e2f1f1;
+            font-family: 'Noto Naskh Arabic', Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
             direction: rtl;
+            margin-bottom: 8px;
+            z-index: 2;
         }
 
         .footer-rights {
+            position: relative;
+            text-align: center;
             font-size: 11px;
             letter-spacing: 0.5px;
             font-weight: 600;
             color: #ffffff;
             font-family: Arial, sans-serif;
+            z-index: 2;
         }
     </style>
 </head>
@@ -216,99 +285,67 @@
 <div class="wrapper">
     <div class="card-container">
         
+        <!-- Top Poster Section -->
         <div class="poster-card">
 
+            <!-- Buttons -->
             <div class="buttons-container">
                 
-                <!-- TikTok -->
                 <a href="https://www.tiktok.com/@dr_rayanali" target="_blank" class="pill-btn">
-                    <div class="pill-icon-wrapper">
-                        <i class="fa-brands fa-tiktok"></i>
-                    </div>
-                    <div class="pill-content">
-                        <div class="pill-title">TikTok</div>
-                    </div>
-                    <div class="pill-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="pill-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="pill-content"><div class="pill-title">TikTok</div></div>
+                    <div class="pill-icon-wrapper"><i class="fa-brands fa-tiktok"></i></div>
                 </a>
 
-                <!-- Instagram -->
                 <a href="https://www.instagram.com/dr_rayanvetclinic" target="_blank" class="pill-btn">
-                    <div class="pill-icon-wrapper">
-                        <i class="fa-brands fa-instagram"></i>
-                    </div>
-                    <div class="pill-content">
-                        <div class="pill-title">Instagram</div>
-                    </div>
-                    <div class="pill-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="pill-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="pill-content"><div class="pill-title">Instagram</div></div>
+                    <div class="pill-icon-wrapper"><i class="fa-brands fa-instagram"></i></div>
                 </a>
 
-                <!-- Facebook -->
                 <a href="https://www.facebook.com/share/18JutYZNhq/" target="_blank" class="pill-btn">
-                    <div class="pill-icon-wrapper">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </div>
-                    <div class="pill-content">
-                        <div class="pill-title">Facebook</div>
-                    </div>
-                    <div class="pill-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="pill-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="pill-content"><div class="pill-title">Facebook</div></div>
+                    <div class="pill-icon-wrapper"><i class="fa-brands fa-facebook-f"></i></div>
                 </a>
 
-                <!-- Phone Number -->
                 <a href="tel:07761233000" class="pill-btn">
-                    <div class="pill-icon-wrapper">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <div class="pill-content">
-                        <div class="pill-title">Phone Number</div>
-                    </div>
-                    <div class="pill-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="pill-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="pill-content"><div class="pill-title">Phone Number</div></div>
+                    <div class="pill-icon-wrapper"><i class="fa-solid fa-phone"></i></div>
                 </a>
 
-                <!-- WhatsApp -->
                 <a href="https://wa.me/9647761233000" target="_blank" class="pill-btn">
-                    <div class="pill-icon-wrapper">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
-                    <div class="pill-content">
-                        <div class="pill-title">WhatsApp</div>
-                    </div>
-                    <div class="pill-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="pill-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="pill-content"><div class="pill-title">WhatsApp</div></div>
+                    <div class="pill-icon-wrapper"><i class="fa-brands fa-whatsapp"></i></div>
                 </a>
 
-                <!-- Viber -->
                 <a href="viber://chat?number=%2B9647761233000" class="pill-btn">
-                    <div class="pill-icon-wrapper">
-                        <i class="fa-brands fa-viber"></i>
-                    </div>
-                    <div class="pill-content">
-                        <div class="pill-title">Viber</div>
-                    </div>
-                    <div class="pill-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="pill-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="pill-content"><div class="pill-title">Viber</div></div>
+                    <div class="pill-icon-wrapper"><i class="fa-brands fa-viber"></i></div>
                 </a>
 
-                <!-- Location / Map -->
                 <a href="https://maps.app.goo.gl/tpPzaLGFu7pY5Wwt8" target="_blank" class="pill-btn">
-                    <div class="pill-icon-wrapper">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <div class="pill-content">
-                        <div class="pill-title">Map</div>
-                    </div>
-                    <div class="pill-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                    <div class="pill-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="pill-content"><div class="pill-title">Map</div></div>
+                    <div class="pill-icon-wrapper"><i class="fa-solid fa-location-dot"></i></div>
                 </a>
 
-            </div>
-
-            <div class="bottom-slogan">
-                پسپۆڕی لە خزمەتکردن ، دڵسۆزی لە چارەسەر کردن
             </div>
 
         </div>
 
-        <footer class="site-footer">
-            <div class="footer-slogan">« میهرەبانی لەگەڵ ئاژەڵان ، دڵسۆزی لە چارەسەر »</div>
+        <!-- Unified curved green footer section -->
+        <div class="unified-footer">
+            <div class="paw-icon"><i class="fa-solid fa-paw"></i></div>
+            <div class="slogan-main">
+                پسپۆڕی لە خزمەتکردن ، دڵسۆزی لە چارەسەر کردن
+            </div>
+            <div class="slogan-quote">« میهرەبانی لەگەڵ ئاژەڵان ، دڵسۆزی لە چارەسەر »</div>
             <div class="footer-rights">Dr.Rayan .All Rights Reserved 2026</div>
-        </footer>
+        </div>
 
     </div>
 </div>
